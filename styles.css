@@ -1,0 +1,1532 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+/*===== VARIABLES CSS =====*/
+:root {
+  --header-height: 3rem;
+  --font-semi: 600;
+  /*===== Colores =====*/
+  /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
+  /* HSL color mode */
+  --hue-color: 224;
+  --first-color: hsl(var(--hue-color), 89%, 60%);
+  --second-color: hsl(var(--hue-color), 56%, 12%);
+  /*===== Fuente y tipografia =====*/
+  --body-font: "Poppins", sans-serif;
+  --big-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: .938rem;
+  --smaller-font-size: .75rem;
+  /*===== Margenes =====*/
+  --mb-2: 1rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+  /*===== z index =====*/
+  --z-back: -10;
+  --z-fixed: 100;
+}
+@media screen and (min-width: 968px) {
+  :root {
+    --big-font-size: 3.5rem;
+    --h2-font-size: 2rem;
+    --normal-font-size: 1rem;
+    --smaller-font-size: .875rem;
+  }
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set the background color to black */
+body {
+  background-color:lightpink;
+  color:black; 
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Ensure links and other elements are visible on a black background */
+a {
+  color: #1e90ff; /* Light blue for links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #00bfff; /* Brighter blue on hover */
+}
+
+/*===== CLASS CSS ===== */
+.section-title {
+  position: relative;
+  font-size: var(--h2-font-size);
+  color: #6c63ff;
+  margin-top: var(--mb-2);
+  margin-bottom: var(--mb-4);
+  text-align: center;
+  text-shadow:
+    0 0 8px #6c63ff88,
+    0 0 16px #00e1ff66,
+    0 2px 4px #fff;
+  letter-spacing: 2px;
+  font-weight: 700;
+  transition: color 0.3s, text-shadow 0.3s;
+  animation: headerGlow 2s infinite alternate;
+}
+
+.section-title:hover {
+  color: #00e1ff;
+  text-shadow:
+    0 0 16px #00e1ffcc,
+    0 0 32px #6c63ff99,
+    0 2px 8px #fff;
+}
+
+.section-title::after {
+  position: absolute;
+  content: "";
+  width: 64px;
+  height: 0.18rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 2rem;
+  background-color: var(--first-color);
+}
+
+.section {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+/*===== LAYOUT =====*/
+.bd-grid {
+  max-width: 1024px;
+  display: grid;
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 9%;
+  background: var(--main-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+l-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: #fff;
+  box-shadow: 0 1px 4px lightblue;
+}
+
+/* Header & Navigation */
+header {
+  background-color: lightblue;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 0;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  padding: 10px 0;              /* Reduce vertical padding */
+  min-height: 56px;             /* Lower minimum height */
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 2rem;
+  margin-right: auto;
+}
+
+.logo {
+  font-size: 1.2rem;            /* Slightly smaller logo text */
+  padding: 0.2rem 0;
+}
+
+/* Animated glowing effect and design for header title/logo */
+.logo {
+  color: #6c63ff;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 8px #6c63ff88,
+    0 0 16px #00e1ff66,
+    0 2px 4px #fff;
+  animation: logoGlow 2s infinite alternate;
+  transition: color 0.3s, text-shadow 0.3s;
+  background: linear-gradient(90deg, #fff 0%, #e0e7ff 100%);
+  padding: 0.3rem 1.2rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #6c63ff22;
+  display: inline-block;
+}
+
+@keyframes logoGlow {
+  0% {
+    color: #6c63ff;
+    text-shadow:
+      0 0 8px #6c63ff88,
+      0 0 16px #00e1ff66,
+      0 2px 4px #fff;
+  }
+  50% {
+    color: #00e1ff;
+    text-shadow:
+      0 0 24px #00e1ffcc,
+      0 0 32px #6c63ff99,
+      0 2px 8px #fff;
+  }
+  100% {
+    color: #6c63ff;
+    text-shadow:
+      0 0 8px #6c63ff88,
+      0 0 16px #00e1ff66,
+      0 2px 4px #fff;
+  }
+}
+
+/* Align nav-links to the right on desktop */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  position: relative;
+}
+
+nav {
+  min-height: 40px;             /* Lower nav height */
+}
+
+/* Make navlist (nav-links) stand out with color, glow, and spacing */
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.nav-links a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6c63ff;
+  background: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  box-shadow: 0 0 12px #6c63ff33, 0 0 24px #00e1ff22;
+  transition: 
+  background0.3s,
+    color 0.3s,
+    box-shadow 0.3s,
+    transform 0.2s;
+  position: relative;
+  letter-spacing: 1px;
+  animation: navGlow 2s infinite alternate;
+}
+
+.nav-links a {
+  font-size: 1rem;              /* Slightly smaller nav link text */
+  padding: 0.4rem 1rem;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background: #6c63ff;
+  color: #fff;
+  box-shadow: 0 0 24px #00e1ffcc, 0 0 48px #6c63ff99;
+  transform: scale(1.08);
+  text-decoration: none;
+}
+
+/* Optional: make sure logo stays at left and nav-links at right */
+.logo {
+  margin-right: auto;
+}
+
+/* Responsive: keep navlist beautiful on mobile */
+@media (max-width: 800px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding-top: 30px;
+  }
+  .nav-links a {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    border-radius: 18px;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+.nav-links a {
+    font-size: 16px;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #ccc;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Place hamburger inside the navigation bar, aligned right */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  position: relative;
+}
+
+/* Hamburger always inside nav, right side */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: #6c63ff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 16px 2px #6c63ff80, 0 0 32px 4px #00e1ff40;
+  cursor: pointer;
+  transition: box-shadow 0.3s, background 0.3s;
+  margin-left: 1rem;
+  z-index: 1001;
+  position: relative; /* stays inside nav */
+}
+
+.hamburger {
+  width: 40px;
+  height: 40px;
+  margin-left: 0.5rem;
+}
+
+.hamburger .bar {
+  display: block;
+  width: 26px;
+  height: 4px;
+  margin: 4px 0;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.hamburger:hover,
+.hamburger:focus {
+  background: #00e1ff;
+  box-shadow: 0 0 32px 8px #00e1ffcc, 0 0 48px 16px #6c63ff99;
+  outline: none;
+}
+
+/* Make hamburger menu a bit smaller and responsive */
+.hamburger {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #6c63ff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px #6c63ff80, 0 0 18px 4px #00e1ff40;
+  cursor: pointer;
+  transition: box-shadow 0.3s, background 0.3s;
+  margin-left: 0.5rem;
+  z-index: 1001;
+  position: relative;
+  /* Align vertically with logo/title */
+  align-self: center;
+}
+
+.hamburger .bar {
+  width: 16px;
+  height: 3px;
+  margin: 2.5px 0;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Responsive: keep hamburger small and aligned on mobile */
+@media (max-width: 800px) {
+  .hamburger {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 30px;
+    max-height: 30px;
+    margin-left: 0.5rem;
+    position: static;
+    align-self: center; /* Ensures vertical alignment with logo/title */
+    top: auto;
+    right: auto;
+  }
+}
+
+/* Responsive hamburger menu */
+@media (max-width: 800px) {
+  .hamburger {
+    display: flex;
+    position: static; /* stays inside nav, not absolute */
+    margin-left: 1rem;
+  }
+  nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 220px;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 70px 20px 20px 20px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.05);
+    transition: right 0.3s;
+    z-index: 1000;
+    gap: 1.5rem;
+  }
+  .nav-links.open {
+    right: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  header {
+    padding: 8px 0;
+    min-height: 48px;
+  }
+  .logo {
+    font-size: 1rem;
+  }
+  .hamburger {
+    width: 36px;
+    height: 36px;
+    top: 10px;
+    right: 16px;
+  }
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+
+/*===== HOME SECTION =====*/
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+home__data {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+.home__data {
+  text-align: left;
+}
+
+.home__title {
+  font-size: 2.5rem;
+  color: var(--first-color);
+  margin-bottom: 1rem;
+}
+
+.home__title-color {
+  color: var(--second-color);
+}
+
+.home__text {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.home__img {
+  text-align: center;
+  border-radius: 50px;
+}
+
+.home__image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: var(--second-color);
+}
+
+/*BUTTONS*/
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: lightblue;
+  padding: 0.75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+.button:hover {
+  box-shadow: 0px 10px 36px blueviolet;
+}
+
+/* Auto lights (animated glowing effect) for your home title */
+.home__title {
+  color: #6c63ff;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 10px #6c63ff88,
+    0 0 20px #00e1ff66,
+    0 2px 6px #fff;
+  animation: homeTitleGlow 2s infinite alternate;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+@keyframes homeTitleGlow {
+  0% {
+    color: #6c63ff;
+    text-shadow:
+      0 0 10px #6c63ff88,
+      0 0 20px #00e1ff66,
+      0 2px 6px #fff;
+  }
+  50% {
+    color: #00e1ff;
+    text-shadow:
+      0 0 28px #00e1ffcc,
+      0 0 40px #6c63ff99,
+      0 2px 12px #fff;
+  }
+  100% {
+    color: #6c63ff;
+    text-shadow:
+      0 0 10px #6c63ff88,
+      0 0 20px #00e1ff66,
+      0 2px 6px #fff;
+  }
+}
+
+/* ===== ABOUT =====*/
+
+.about__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 2rem;
+  max-width: 1024px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 2rem 0;
+}
+
+.about__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__img img {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.4s cubic-bezier(.4,2.08,.55,.44), box-shadow 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.about__img img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+
+.about__subtitle {
+  font-size: 2rem;
+  color: var(--first-color);
+  margin-bottom: 1rem;
+}
+
+.about__text {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Animated glowing effect for About section subtitle */
+.about__subtitle {
+  color: #6c63ff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 8px #6c63ff88,
+    0 0 16px #00e1ff66,
+    0 2px 4px #fff;
+  animation: aboutSubtitleGlow 2s infinite alternate;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+@keyframes aboutSubtitleGlow {
+  0% {
+    color: #6c63ff;
+    text-shadow:
+      0 0 8px #6c63ff88,
+      0 0 16px #00e1ff66,
+      0 2px 4px #fff;
+  }
+  50% {
+    color: #00e1ff;
+    text-shadow:
+      0 0 24px #00e1ffcc,
+      0 0 32px #6c63ff99,
+      0 2px 8px #fff;
+  }
+  100% {
+    color: #6c63ff;
+    text-shadow:
+      0 0 8px #6c63ff88,
+      0 0 16px #00e1ff66,
+      0 2px 4px #fff;
+  }
+}
+
+/* Gallery Section */
+.gallery__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four columns */
+  gap: 2rem;
+  padding: 2rem 0;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Responsive: 2 columns on tablets */
+@media (max-width: 1100px) {
+  .gallery__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Responsive: 1 column on mobile */
+@media (max-width: 700px) {
+  .gallery__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.gallery__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Optional: add a fixed height for more uniformity */
+  min-height: 320px;
+}
+
+.gallery__img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;         /* Keeps images square, adjust as needed */
+  object-fit: contain;         /* Show full image, no cropping */
+  border-radius: 18px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  transition: transform 0.2s;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments for tablets */
+@media (max-width: 900px) {
+  .gallery__img {
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 700px) {
+  .gallery__img {
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* Add colored border and glowing light effect to all main images */
+.gallery__img,
+.about__img img,
+.home__img img,
+.hobby-img {
+  border: 4px solid #00e1ff;
+  box-shadow:
+    0 0 48px 12px #00e1ffff,
+    0 0 80px 24px #6c63ffff,
+    0 0 24px 6px #fff;
+  transition:
+    box-shadow 0.3s,
+    border-color 0.3s,
+    transform 0.2s;
+  animation: imgHighlightGlow 1.2s infinite alternate;
+}
+
+/* Glow intensifies on hover */
+.gallery__img:hover,
+.about__img img:hover,
+.home__img img:hover,
+.hobby-img:hover {
+  border-color: #00e1ff;
+  box-shadow: 0 0 32px 8px #00e1ffcc, 0 0 48px 16px #6c63ff99;
+  transform: scale(1.05);
+}
+
+/* Responsive adjustment for tablets */
+@media (max-width: 900px) {
+  .gallery__container {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .gallery__img {
+    max-width: 220px;
+    max-height: 220px;
+  }
+  .gallery__item {
+    min-height: 240px;
+  }
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 600px) {
+  .gallery__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .gallery__img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+  .gallery__item {
+    min-height: 160px;
+  }
+}
+
+/* Hobbies Section */
+.hobbies__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.hobby__item {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby__item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hobby__icon {
+  font-size: 3rem;
+  color: #6c63ff;
+  margin-bottom: 1rem;
+}
+
+.hobby__title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hobby__text {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Hobbies grid */
+.hobbies__images {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 1rem;
+  justify-content: space-between; /* Spread images to sides */
+  align-items: center;
+}
+
+.hobby-img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  aspect-ratio: auto;         /* Let the image keep its natural aspect ratio */
+  object-fit: contain;        /* Show the whole image, no cropping */
+  border-radius: 18px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  transition: transform 0.2s;
+  box-sizing: border-box;
+}
+
+/* For the farming image, center it */
+.hobbies__images .farming-img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* Make farming and hiking images the same size in hobbies */
+.hobbies__images .hobby-img {
+  width: 100%;
+  max-width: 180px;
+  max-height: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Modal styles */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 15px;
+}
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Make gallery and hobby images fully responsive */
+.gallery__img,
+.hobby-img {
+  width: 100%;
+  max-width: 350px;    /* Prevents images from being too large on big screens */
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.2s;
+}
+
+.gallery__img:hover,
+.hobby-img:hover {
+  transform: scale(1.08);
+}
+
+/* Make the hobbies__images container behave like gallery__item */
+.hobbies__images {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.about__img img,
+.home__img img {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.4s cubic-bezier(.4,2.08,.55,.44), box-shadow 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.about__img img:hover,
+.home__img img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 600px) {
+  .gallery__img,
+  .hobby-img {
+    height: 100px;
+  }
+  .about__img img,
+  .home__img img {
+    max-width: 150px;
+    height: 150px;
+  }
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .section {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Responsive adjustment for tablets */
+@media (max-width: 900px) {
+  .gallery__img,
+  .hobby-img {
+    max-width: 220px;
+    height: 140px;
+  }
+  .gallery__img {
+    max-width: 220px;
+    height: 220px;
+  }
+  .about__img img,
+  .home__img img {
+    max-width: 220px;
+    height: 220px;
+  }
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 700px) {
+  .gallery__img,
+  .hobby-img {
+    max-width: 100%;
+    height: 100px;
+  }
+  .about__img img,
+  .home__img img {
+    max-width: 220px;
+    height: 220px;
+  }
+}
+
+/* Responsive: stack images on small screens */
+@media (max-width: 700px) {
+  .hobbies__images {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hobby-img {
+    margin: 0 0 10px 0;
+  }
+}
+
+/* Center the contact section */
+.contact.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact__info i {
+  margin-right: 8px;
+  color: #007bff;
+}
+
+/* Responsive styles for navigation and layout */
+@media (max-width: 900px) {
+  .bd-grid {
+    max-width: 98vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
+  .about__container,
+  .home__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .about__img,
+  .home__img {
+    justify-content: center;
+  }
+}
+
+/* Responsive hamburger menu for mobile */
+@media (max-width: 800px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 200px;
+    height: 100vh;
+    background: #fff;
+    padding: 60px 20px 20px 20px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.05);
+    transition: right 0.3s;
+    z-index: 1000;
+    gap: 1.5rem;
+    padding-top: 30px;       /* Move nav links closer to the top of the menu */
+  }
+  .nav-links.open {
+    right: 0;
+  }
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 25px;
+    right: 30px;
+  }
+  nav {
+    position: relative;
+  }
+  .nav-links li {
+    margin: 0 0 20px 0;
+  }
+}
+
+/* Responsive grid for about and home sections */
+@media (max-width: 900px) {
+  .about__container,
+  .home__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .about__img,
+  .home__img {
+    justify-content: center;
+  }
+}
+
+/* Responsive images and sections */
+@media (max-width: 700px) {
+  .gallery__container,
+  .hobbies__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .about__img img,
+  .home__img img {
+    max-width: 220px;
+    height: 220px;
+  }
+  .section-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 600px) {
+  .gallery__img,
+  .hobby-img {
+    height: 100px;
+    max-width: 100%;
+  }
+  .about__img img,
+  .home__img img {
+    max-width: 150px;
+    height: 150px;
+  }
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .section {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Responsive: stack hobbies images on small screens */
+@media (max-width: 700px) {
+  .hobbies__images {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hobby-img {
+    margin: 0 0 10px 0;
+  }
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 600px) {
+  .hobbies__images .hobby-img {
+    max-width: 100px;
+    max-height: 70px;
+    height: 70px;
+  }
+}
+
+/* Animated glowing effect for section headers */
+@keyframes headerGlow {
+  0% {
+    text-shadow:
+      0 0 8px #6c63ff88,
+      0 0 16px #00e1ff66,
+      0 2px 4px #fff;
+    color: #6c63ff;
+  }
+  50% {
+    text-shadow:
+      0 0 24px #00e1ffcc,
+      0 0 48px #6c63ff99,
+      0 2px 8px #fff;
+    color: #00e1ff;
+  }
+  100% {
+    text-shadow:
+      0 0 8px #6c63ff88,
+      0 0 16px #00e1ff66,
+      0 2px 4px #fff;
+    color: #6c63ff;
+  }
+}
+
+/* Animated glowing effect for all main images */
+@keyframes imgGlow {
+  0% {
+    box-shadow: 0 0 16px 2px #6c63ff80, 0 0 32px 4px #00e1ff40;
+    border-color: #6c63ff;
+  }
+  100% {
+    box-shadow: 0 0 16px 2px #6c63ff80, 0 0 32px 4px #00e1ff40;
+    border-color: #6c63ff;
+  }
+}
+
+/* Strong animated highlight for images */
+@keyframes imgHighlightGlow {
+  0% {
+    box-shadow:
+      0 0 48px 12px #00e1ffff,
+      0 0 80px 24px #6c63ffff,
+      0 0 24px 6px #fff;
+    border-color: #00e1ff;
+  }
+  50% {
+    box-shadow:
+      0 0 80px 24px #6c63ffcc,
+      0 0 120px 36px #00e1ffcc,
+      0 0 36px 10px #fff;
+    border-color: #6c63ff;
+  }
+  100% {
+    box-shadow:
+      0 0 48px 12px #00e1ffff,
+      0 0 80px 24px #6c63ffff,
+      0 0 24px 6px #fff;
+    border-color: #00e1ff;
+  }
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 600px) {
+  .home__title, .logo {
+    font-size: 1.3rem;
+  }
+}
+
+/* Hamburger menu styles with color and light effect */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: #6c63ff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 16px 2px #6c63ff80, 0 0 32px 4px #00e1ff40;
+  cursor: pointer;
+  transition: box-shadow 0.3s, background 0.3s;
+  margin-left: 1rem;
+  z-index: 1001;
+}
+.hamburger .bar {
+  display: block;
+  width: 26px;
+  height: 4px;
+  margin: 4px 0;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger:hover,
+.hamburger:focus {
+  background: #00e1ff;
+  box-shadow: 0 0 32px 8px #00e1ffcc, 0 0 48px 16px #6c63ff99;
+  outline: none;
+}
+
+/* Responsive hamburger menu */
+@media (max-width: 800px) {
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 18px;
+    right: 30px;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 220px;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 70px 20px 20px 20px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.05);
+    transition: right 0.3s;
+    z-index: 1000;
+    gap: 1.5rem;
+  }
+  .nav-links.open {
+    right: 0;
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 8px;
+    background: #f3f3ff;
+    color: #6c63ff;
+    font-weight: bold;
+    box-shadow: 0 0 8px #6c63ff33;
+    margin-bottom: 8px;
+    text-align: left;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  }
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background: #6c63ff;
+    color: #fff;
+    box-shadow: 0 0 16px #00e1ff99;
+  }
+}
+
+/* Animated glowing effect for navlist links */
+@keyframes navGlow {
+  0% {
+    box-shadow: 0 0 8px #6c63ff33, 0 0 16px #00e1ff22;
+    color: #6c63ff;
+    background: #fff;
+  }
+  50% {
+    box-shadow: 0 0 24px #00e1ffcc, 0 0 32px #6c63ff99;
+    color: #00e1ff;
+    background: #f3f3ff;
+  }
+  100% {
+    box-shadow: 0 0 8px #6c63ff33, 0 0 16px #00e1ff22;
+    color: #6c63ff;
+    background: #fff;
+  }
+}
+
+/* Animated glowing effect for paragraph text */
+@keyframes paraGlow {
+  0% {
+    color: #333;
+    text-shadow: 0 0 6px #6c63ff33, 0 0 12px #00e1ff22;
+  }
+  50% {
+    color: #6c63ff;
+    text-shadow: 0 0 16px #00e1ffcc, 0 0 24px #00e1ff99;
+  }
+  100% {
+    color: #333;
+    text-shadow: 0 0 6px #6c63ff33, 0 0 12px #00e1ff22;
+  }
+}
+
+/* Apply to all paragraphs */
+p, .about__text, .home__text, .hobby__text {
+  animation: paraWhiteGlow 2.5s infinite alternate;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Animated white glowing effect for paragraph text */
+@keyframes paraWhiteGlow {
+  0% {
+    color: #333;
+    text-shadow: 0 0 8px #fff2, 0 0 16px #fff1;
+  }
+  50% {
+    color: #fff;
+    text-shadow: 0 0 24px #fff, 0 0 48px #fff8;
+  }
+  100% {
+    color: #333;
+    text-shadow: 0 0 8px #fff2, 0 0 16px #fff1;
+  }
+}
+
+/* Apply white glow to all paragraphs */
+p, .about__text, .home__text, .hobby__text {
+  animation: paraWhiteGlow 2.5s infinite alternate;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Hobbies title color and animated glowing light effect */
+.hobbies__title {
+  color: #6c63ff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 8px #6c63ff88,
+    0 0 16px #00e1ff66,
+    0 2px 4px #fff;
+  animation: hobbiesTitleGlow 2s infinite alternate;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Animated glowing effect for hobbies titles */
+@keyframes hobbiesTitleGlow {
+  0% {
+    color: #6c63ff;
+    text-shadow:
+      0 0 8px #6c63ff88,
+      0 0 16px #00e1ff66,
+      0 2px 4px #fff;
+  }
+  50% {
+    color: #00e1ff;
+    text-shadow:
+      0 0 24px #00e1ffcc,
+      0 0 32px #6c63ff99,
+      0 2px 8px #fff;
+  }
+  100% {
+    color: #6c63ff;
+    text-shadow:
+      0 0 8px #6c63ff88,
+      0 0 16px #00e1ff66,
+      0 2px 4px #fff;
+  }
+}
+
+/* Animated glowing effect for contact section links */
+#contact a {
+  color: #6c63ff;
+  font-weight: 600;
+  text-shadow:
+    0 0 6px #6c63ff55,
+    0 0 12px #00e1ff33;
+  transition: color 0.3s, text-shadow 0.3s;
+  animation: contactLinkGlow 2s infinite alternate;
+}
+
+@keyframes contactLinkGlow {
+  0% {
+    color: #6c63ff;
+    text-shadow: 0 0 6px #6c63ff55, 0 0 12px #00e1ff33;
+  }
+  50% {
+    color: #00e1ff;
+    text-shadow: 0 0 16px #00e1ffcc, 0 0 32px #6c63ff99;
+  }
+  100% {
+    color: #6c63ff;
+    text-shadow: 0 0 6px #6c63ff55, 0 0 12px #00e1ff33;
+  }
+}
+
+/* Make gallery and hobbies pictures always exact size and responsive */
+
+/* For gallery images */
+.gallery__img {
+  width: 100%;
+  height: 220px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.2s;
+  box-sizing: border-box;
+}
+
+/* For hobbies images */
+.hobby-img {
+  width: 100%;
+  height: 180px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.2s;
+  box-sizing: border-box;
+}
+
+/* Make sure the grid items also fill the space */
+.gallery__item,
+.hobbies__images {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
+
+/* Responsive adjustment for tablets */
+@media (max-width: 900px) {
+  .gallery__img,
+  .hobby-img,
+  .gallery__item,
+  .hobbies__images {
+    height: 140px;
+    min-height: 100px;
+    max-width: 100%;
+  }
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 700px) {
+  .gallery__img,
+  .hobby-img,
+  .gallery__item,
+  .hobbies__images {
+    height: 100px;
+    min-height: 80px;
+    max-width: 100%;
+  }
+}
