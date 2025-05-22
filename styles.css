@@ -1531,43 +1531,50 @@ p, .about__text, .home__text, .hobby__text {
   }
 }
 
-/* Responsive adjustment for small screens */
-@media (max-width: 700px) {
-  .gallery__img,
-  .hobby-img,
-  .gallery__item,
-  .hobbies__images {
-    height: 100px;
-    min-height: 80px;
-    max-width: 100%;
-  }
-}
+/* --- SMOOTH & RESPONSIVE GLOW FOR ALL SECTIONS --- */
 
-a {
+/* 1. Make all glow animations very smooth and slow */
+.section-title,
+.logo,
+.home__title,
+.about__subtitle,
+.hobbies__title,
+.nav-links a,
+#contact a,
+p,
+.about__text,
+.home__text,
+.hobby__text {
   animation-duration: 3.5s !important;
   animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
   will-change: color, text-shadow, box-shadow;
 }
 
-p, .abou/* Apply smooth animation to all glowing elements */
+/* 2. Make sure all animated elements auto-load their animation */
 .section-title,
 .logo,
 .home__title,
 .about__subtitle,
 .hobbies__title {
-  animation-duration: 3.5s !important;
-  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
-  will-change: color, text-shadow;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .nav-links a,
-#contact t__text, .home__text, .hobby__text {
-  animation-duration: 3.5s !important;
-  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
-  will-change: color, text-shadow;
+#contact a {
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-/* Responsive font size for all main animated elements */
+p,
+.about__text,
+.home__text,
+.hobby__text {
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* 3. Responsive font size and padding for animated elements */
 @media (max-width: 700px) {
   .section-title,
   .logo,
@@ -1582,4 +1589,30 @@ p, .abou/* Apply smooth animation to all glowing elements */
     font-size: 1rem !important;
     padding: 0.12em 0.3em !important;
   }
+  p,
+  .about__text,
+  .home__text,
+  .hobby__text {
+    font-size: 0.95rem !important;
+  }
 }
+
+/* 4. Responsive images and containers */
+@media (max-width: 700px) {
+  .gallery__img,
+  .hobby-img,
+  .about__img img,
+  .home__img img {
+    max-width: 100%;
+    height: auto;
+  }
+  .gallery__container,
+  .hobbies__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* 5. Make sure all keyframes are smooth (already present in your code) */
+
+/* --- END SMOOTH & RESPONSIVE GLOW --- */
